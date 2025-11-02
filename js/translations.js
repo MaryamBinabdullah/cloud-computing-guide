@@ -73,6 +73,7 @@ const translations = {
     // Footer
     "Cloud Computing Educational Resource": "مورد تعليمي للحوسبة السحابية",
     "A foundational guide for students and lifelong learners.": "دليل أساسي للطلاب والمتعلمين مدى الحياة.",
+    
 
     // Interactive Elements
     "Calculate Your Potential Savings": "احسب مدخراتك المحتملة",
