@@ -8,7 +8,7 @@
 
 **An interactive, hands-on guide to mastering cloud computing fundamentals**
 
-[Live Demo](https://yourusername.github.io/cloud-computing-guide) • [Report Bug](https://github.com/MaryamBinabdullah/cloud-computing-guide/issues) • [Request Feature](https://github.com/MaryamBinabdullah/cloud-computing-guide/issues)
+[Live Demo](https://MaryamBinabdullah.github.io/cloud-computing-guide) • [Report Bug](https://github.com/MaryamBinabdullah/cloud-computing-guide/issues) • [Request Feature](https://github.com/MaryamBinabdullah/cloud-computing-guide/issues)
 
 </div>
 
