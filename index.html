@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Computing Guide | Modern Digital Infrastructure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/labs.css">
+</head>
+<body>
+    <div class="progress-indicator" id="progressIndicator"></div>
+
+    <header>
+        <div class="header-bg-elements">
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+        </div>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-cloud fa-2x"></i>
+                </div>
+                <h1>Cloud Computing</h1>
+                <p class="subtitle">Master the digital infrastructure that powers modern technology</p>
+                <a href="#content" class="btn">
+                    <i class="fas fa-arrow-down"></i>
+                    Explore Cloud Concepts
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="content" class="container">
+
+      <section id="master" class="visible">
+        <div class="section-header">
+          <h2 class="section-title">What You'll Master</h2>
+          <p class="section-subtitle">
+            Cloud computing is the foundation of modern IT. This guide delivers
+            a clear, accessible overview of its core concepts.
+          </p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card feature-card">
+            <div class="icon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <h3>Financial Models</h3>
+            <p>
+              Understanding the shift from CapEx to OpEx and cloud cost
+              management.
+            </p>
+          </div>
+          <div class="card feature-card">
+            <div class="icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3>Automation</h3>
+            <p>
+              Learn Infrastructure as Code and modern software delivery
+              practices.
+            </p>
+          </div>
+          <div class="card feature-card">
+            <div class="icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <h3>Security</h3>
+            <p>
+              Master the shared responsibility model and cloud security best
+              practices.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="financial">
+        <div class="section-header">
+          <h2 class="section-title">Financial Model: CapEx vs. OpEx</h2>
+          <p class="section-subtitle">
+            Understanding the fundamental shift in IT spending from capital to
+            operational expenditure.
+          </p>
+        </div>
+        <div class="comparison">
+          <div class="card comparison-card">
+            <h3>
+              <div class="icon">
+                <i class="fas fa-store"></i>
+              </div>
+              Capital Expenditure (CapEx)
+            </h3>
+            <p class="mb-4">Traditional IT: Purchase Assets Outright</p>
+            <ul>
+              <li>
+                <i class="fas fa-hand-holding-usd"></i>
+                <div>
+                  <strong>Fixed Cost:</strong> Large, single, upfront purchase.
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-hourglass-half"></i>
+                <div>
+                  <strong>Waste Risk:</strong> High chance of over-provisioning
+                  or under-provisioning.
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-wrench"></i>
+                <div>
+                  <strong>Full Responsibility:</strong> Customer handles all
+                  maintenance and upgrades.
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="card comparison-card">
+            <h3>
+              <div class="icon">
+                <i class="fas fa-gas-pump"></i>
+              </div>
+              Operational Expenditure (OpEx)
+            </h3>
+            <p class="mb-4">Cloud IT: Rent as a Utility Service</p>
+            <ul>
+              <li>
+                <i class="fas fa-chart-bar"></i>
+                <div>
+                  <strong>Variable Cost:</strong> Pay-as-you-go; costs scale
+                  with usage.
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-level-up-alt"></i>
+                <div>
+                  <strong>Elasticity:</strong> Instantly scale capacity to match
+                  real-time demand.
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-users-cog"></i>
+                <div>
+                  <strong>Shared Responsibility:</strong> Provider manages
+                  physical hardware.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lab-container">
+          <div class="lab-header">
+            <h3><i class="fas fa-calculator"></i> Cloud Cost Calculator</h3>
+          </div>
+          <div class="lab-content">
+            <div class="lab-instructions">
+              <h4>Calculate Your Potential Savings</h4>
+              <p>
+                Compare traditional CapEx spending with cloud OpEx models.
+                Adjust the values below to see how cloud computing can transform
+                your IT costs.
+              </p>
+            </div>
+
+            <div class="cost-calculator">
+              <div class="form-group">
+                <label for="users">Number of Users:</label>
+                <input
+                  type="range"
+                  id="users"
+                  min="10"
+                  max="1000"
+                  value="100"
+                  class="slider"
+                />
+                <span id="usersValue">100 users</span>
+              </div>
+
+              <div class="form-group">
+                <label for="storage">Storage Needed (GB):</label>
+                <input
+                  type="range"
+                  id="storage"
+                  min="100"
+                  max="10000"
+                  value="1000"
+                  class="slider"
+                />
+                <span id="storageValue">1000 GB</span>
+              </div>
+
+              <div class="form-group">
+                <label for="usage">Monthly Usage (hours):</label>
+                <input
+                  type="range"
+                  id="usage"
+                  min="100"
+                  max="2000"
+                  value="500"
+                  class="slider"
+                />
+                <span id="usageValue">500 hours</span>
+              </div>
+
+              <div class="calculator-results">
+                <div class="result-card">
+                  <div>Traditional CapEx</div>
+                  <div class="result-value" id="capexCost">$45,000</div>
+                  <div>Upfront + Maintenance</div>
+                </div>
+                <div class="result-card">
+                  <div>Cloud OpEx</div>
+                  <div class="result-value" id="opexCost">$1,250</div>
+                  <div>Monthly Cost</div>
+                </div>
+                <div class="result-card">
+                  <div>Annual Savings</div>
+                  <div class="result-value" id="savings">$30,000</div>
+                  <div>First Year</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <p>
+            <strong>The Core Shift:</strong> Cloud converts fixed, risky costs
+            into agile, variable costs, allowing your spending to directly
+            reflect and support business activity.
+          </p>
+        </div>
+      </section>
+
+      <section id="service-models">
+        <div class="section-header">
+          <h2 class="section-title">Service Models</h2>
+          <p class="section-subtitle">
+            Understanding the spectrum of cloud service models from
+            infrastructure to software.
+          </p>
+        </div>
+
+        <div class="architecture-diagram">
+          <h3 class="text-center mb-4">Interactive Service Model Diagram</h3>
+          <div class="diagram-container">
+            <div class="layer layer-saas" onclick="showLayerDetails('saas')">
+              <strong>SaaS</strong><br />
+              Software
+            </div>
+            <div class="layer layer-paas" onclick="showLayerDetails('paas')">
+              <strong>PaaS</strong><br />
+              Platform
+            </div>
+            <div class="layer layer-iaas" onclick="showLayerDetails('iaas')">
+              <strong>IaaS</strong><br />
+              Infrastructure
+            </div>
+            <div
+              class="layer layer-infrastructure"
+              onclick="showLayerDetails('infrastructure')"
+            >
+              <strong>Infrastructure</strong><br />
+              Provider Managed
+            </div>
+          </div>
+          <div class="layer-details" id="layerDetails">
+            Click on any layer to see what you manage vs what the provider
+            manages
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>User Manages</th>
+                <th>Provider Manages</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>IaaS</strong><br />Infrastructure as a Service</td>
+                <td>OS, runtime, applications, data</td>
+                <td>Physical servers, storage, networking</td>
+                <td><i class="fas fa-hdd"></i> Virtual Machines</td>
+              </tr>
+              <tr>
+                <td><strong>PaaS</strong><br />Platform as a Service</td>
+                <td>Application code and data</td>
+                <td>OS, middleware, runtime, servers</td>
+                <td><i class="fas fa-code"></i> App Hosting</td>
+              </tr>
+              <tr>
+                <td><strong>SaaS</strong><br />Software as a Service</td>
+                <td>User access and configuration</td>
+                <td>Entire stack (infrastructure to application)</td>
+                <td><i class="fas fa-envelope"></i> Email/CRM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="lab-container">
+          <div class="lab-header">
+            <h3><i class="fas fa-cogs"></i> Service Model Configurator</h3>
+          </div>
+          <div class="lab-content">
+            <div class="lab-instructions">
+              <h4>Configure Your Cloud Setup</h4>
+              <p>
+                Choose your requirements and see which service model fits best.
+                This helps you understand the practical decision-making process.
+              </p>
+            </div>
+
+            <div class="config-visualizer">
+              <div class="config-input">
+                <div class="form-group">
+                  <label for="controlLevel"
+                    >How much control do you need?</label
+                  >
+                  <select id="controlLevel">
+                    <option value="high">Full Control (OS, Runtime)</option>
+                    <option value="medium">Application-Level Control</option>
+                    <option value="low">Just Use the Software</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="teamSize">Development Team Size</label>
+                  <select id="teamSize">
+                    <option value="small">Small Team (1-5)</option>
+                    <option value="medium">Medium Team (6-15)</option>
+                    <option value="large">Large Team (15+)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="applicationType">Application Type</label>
+                  <select id="applicationType">
+                    <option value="custom">Custom Business Application</option>
+                    <option value="standard">
+                      Standard Software (Email, CRM)
+                    </option>
+                    <option value="microservice">
+                      Microservices Architecture
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="config-output">
+                <strong>Recommended Service Model:</strong>
+                <div
+                  id="recommendedModel"
+                  style="
+                    font-size: 1.2rem;
+                    margin: 10px 0;
+                    color: var(--primary);
+                  "
+                >
+                  IaaS
+                </div>
+                <div id="modelExplanation">
+                  You need full control over the operating system and runtime
+                  environment. IaaS gives you maximum flexibility.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <p>
+            <strong>Trade-off Principle:</strong> As you move toward SaaS,
+            convenience increases, but your control and customization options
+            decrease. Choose based on required control and team expertise.
+          </p>
+        </div>
+      </section>
+
+      <section id="iac-lab">
+        <div class="section-header">
+          <h2 class="section-title">Hands-On Lab: Infrastructure as Code</h2>
+          <p class="section-subtitle">
+            Learn by doing. Write your first cloud configuration using real
+            Infrastructure as Code tools.
+          </p>
+        </div>
+
+        <div class="lab-container">
+          <div class="lab-header">
+            <h3><i class="fas fa-code"></i> Terraform AWS Lab</h3>
+          </div>
+          <div class="lab-content">
+            <div class="step-indicator">
+              <div class="step active"></div>
+              <div class="step"></div>
+              <div class="step"></div>
+            </div>
+
+            <div class="lab-instructions">
+              <h4>Create an S3 Bucket using Terraform</h4>
+              <p>Follow these steps to create your first cloud resource:</p>
+              <ol>
+                <li>
+                  Edit the Terraform configuration below to customize your
+                  bucket name
+                </li>
+                <li>Click "Run Configuration" to validate your code</li>
+                <li>Check the output to see what would be created</li>
+              </ol>
+            </div>
+
+            <div class="code-editor">
+              <div class="editor-header">
+                <span>main.tf</span>
+                <div class="editor-actions">
+                  <button class="btn-reset" onclick="resetTerraformCode()">
+                    Reset
+                  </button>
+                  <button class="btn-run" onclick="runTerraformCode()">
+                    Run Configuration
+                  </button>
+                </div>
+              </div>
+              <textarea id="terraform-code" style="display: none">
+# Terraform configuration for AWS S3 Bucket
+provider "aws" {
+  region = "us-east-1"
+}
+
+# Create a unique S3 bucket for storage
+resource "aws_s3_bucket" "my_learning_bucket" {
+  bucket = "my-cloud-learning-bucket-123"
+  
+  tags = {
+    Environment = "learning"
+    Project     = "cloud-education"
+  }
+}
+
+# Configure bucket for public access blocking
+resource "aws_s3_bucket_public_access_block" "example" {
+  bucket = aws_s3_bucket.my_learning_bucket.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
+# Output the bucket name
+output "bucket_name" {
+  value = aws_s3_bucket.my_learning_bucket.bucket
+}
+                        </textarea
+              >
+            </div>
+
+            <div class="output-container" id="terraform-output">
+              # Welcome to the Terraform Lab! # # Edit the bucket name in the
+              code above and click # "Run Configuration" to see what would be
+              created. # # This simulates real Terraform execution without #
+              needing AWS credentials.
+            </div>
+
+            <div class="hands-on-challenge">
+              <div class="challenge-header">
+                <i class="fas fa-tasks"></i>
+                <h4>Real AWS Challenge</h4>
+              </div>
+              <p>
+                <strong>Ready for the real thing?</strong> Here's how to try
+                this with actual AWS:
+              </p>
+              <ol class="challenge-steps">
+                <li>Create an AWS Free Tier account</li>
+                <li>Install Terraform on your computer</li>
+                <li>Create a new file with the code above</li>
+                <li>
+                  Run <code>terraform init</code> then
+                  <code>terraform plan</code>
+                </li>
+                <li>
+                  If everything looks good, run <code>terraform apply</code>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="security">
+        <div class="section-header">
+          <h2 class="section-title">Security: Shared Responsibility</h2>
+          <p class="section-subtitle">
+            Understanding the division of security responsibilities between
+            cloud providers and customers.
+          </p>
+        </div>
+
+        <div class="lab-container">
+          <div class="lab-header">
+            <h3><i class="fas fa-shield-alt"></i> IAM Policy Simulator</h3>
+          </div>
+          <div class="lab-content">
+            <div class="lab-instructions">
+              <h4>Practice Creating Secure IAM Policies</h4>
+              <p>
+                Learn how to create least-privilege security policies by
+                configuring access controls below.
+              </p>
+            </div>
+
+            <div class="config-visualizer">
+              <div class="config-input">
+                <div class="form-group">
+                  <label for="userRole">User Role</label>
+                  <select id="userRole">
+                    <option value="developer">Developer</option>
+                    <option value="admin">Administrator</option>
+                    <option value="readonly">Read-Only User</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="services">Services Needed</label>
+                  <select id="services" multiple style="height: 120px">
+                    <option value="s3">Amazon S3 (Storage)</option>
+                    <option value="ec2">Amazon EC2 (Compute)</option>
+                    <option value="rds">Amazon RDS (Database)</option>
+                    <option value="lambda">AWS Lambda (Serverless)</option>
+                    <option value="iam">IAM (User Management)</option>
+                  </select>
+                  <small>Hold Ctrl to select multiple services</small>
+                </div>
+              </div>
+
+              <div class="config-output">
+                <strong>Generated IAM Policy:</strong>
+                <pre
+                  id="iamPolicy"
+                  style="
+                    background: #1a1a1a;
+                    color: #ffffff;
+                    padding: 20px;
+                    border-radius: 6px;
+                    margin-top: 10px;
+                    font-size: 0.8rem;
+                    max-height: 200px;
+                    overflow-y: auto;
+                    text-align: left;
+                  "
+                >
+{
+  "Version": "2025-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+                            </pre>
+                <div id="policyFeedback" class="quiz-feedback"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="security-grid">
+    <div class="card security-card">
+        <div class="card-content">
+            <h3 class="security-title">
+                <div class="icon security-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                Security <strong>of</strong> the Cloud
+            </h3>
+            <p class="security-description">
+                The cloud provider secures the underlying infrastructure:
+            </p>
+            <ul class="security-list">
+                <li class="security-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Physical data centers</span>
+                </li>
+                <li class="security-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Core network infrastructure</span>
+                </li>
+                <li class="security-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Host OS and hypervisors</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="card security-card">
+        <div class="card-content">
+            <h3 class="security-title">
+                <div class="icon security-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                Security <strong>in</strong> the Cloud
+            </h3>
+            <p class="security-description">
+                The customer is responsible for everything they deploy or configure:
+            </p>
+            <ul class="security-list">
+                <li class="security-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Data protection (encryption)</span>
+                </li>
+                <li class="security-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Identity and Access Management (IAM)</span>
+                </li>
+                <li class="security-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Correct configuration management</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+        <div class="highlight-box">
+          <p>
+            <strong>Critical Note:</strong> Most cloud breaches stem from
+            customer configuration errors ("Security in the Cloud"), not
+            platform vulnerabilities.
+          </p>
+        </div>
+      </section>
+
+      <section id="quiz">
+        <div class="section-header">
+          <h2 class="section-title">Cloud Challenge Quiz</h2>
+          <p class="section-subtitle">
+            Test your knowledge! Click on each question to reveal the answer and
+            get detailed feedback.
+          </p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card quiz-card enhanced" onclick="toggleAnswer(this)">
+            <div class="card-content">
+              <p class="question">
+                <i class="fas fa-balance-scale"></i>
+                What is the financial model of the cloud called?
+              </p>
+              <div class="answer">
+                <p><strong>Answer:</strong> Operational Expenditure (OpEx).</p>
+                <div class="quiz-feedback feedback-correct">
+                  <strong>Explanation:</strong> Cloud computing uses an
+                  operational expenditure model where you pay for what you use,
+                  unlike traditional capital expenditure where you make large
+                  upfront investments.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card quiz-card enhanced" onclick="toggleAnswer(this)">
+            <div class="card-content">
+              <p class="question">
+                <i class="fas fa-users"></i>
+                Who is responsible for securing uploaded data?
+              </p>
+              <div class="answer">
+                <p><strong>Answer:</strong> The Customer.</p>
+                <div class="quiz-feedback feedback-correct">
+                  <strong>Explanation:</strong> Under the shared responsibility
+                  model, customers are responsible for securing their data,
+                  applications, and configurations, while the provider secures
+                  the underlying infrastructure.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card quiz-card enhanced" onclick="toggleAnswer(this)">
+            <div class="card-content">
+              <p class="question">
+                <i class="fas fa-server"></i>
+                Which service model gives the most OS control?
+              </p>
+              <div class="answer">
+                <p>
+                  <strong>Answer:</strong> Infrastructure as a Service (IaaS).
+                </p>
+                <div class="quiz-feedback feedback-correct">
+                  <strong>Explanation:</strong> IaaS provides the most control,
+                  allowing you to manage the operating system, runtime, and
+                  applications. PaaS and SaaS abstract away more layers, giving
+                  you less control but more convenience.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card quiz-card enhanced" onclick="toggleAnswer(this)">
+            <div class="card-content">
+              <p class="question">
+                <i class="fas fa-code"></i>
+                What is defining infrastructure with code called?
+              </p>
+              <div class="answer">
+                <p><strong>Answer:</strong> Infrastructure as Code (IaC).</p>
+                <div class="quiz-feedback feedback-correct">
+                  <strong>Explanation:</strong> Infrastructure as Code allows
+                  you to define and provision cloud resources using code files,
+                  enabling version control, consistency, and automation in your
+                  deployments.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Cloud Computing Educational Resource</h3>
+                <p>A foundational guide for students and lifelong learners.</p>
+                <p class="footer-copyright">© 2025 | Optimized for Clarity and Engagement</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/ruby/ruby.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/shell/shell.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/labs.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
