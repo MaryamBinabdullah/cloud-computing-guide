@@ -14,7 +14,7 @@
 
 ----
 Visit the site here:  
-**https://yourusername.github.io/cloud-computing-guide**
+**https://MaryamBinabdullah.github.io/cloud-computing-guide**
 
 ## 📖 What's This About?
 
