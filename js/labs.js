@@ -381,9 +381,9 @@ function showLayerDetails(layer) {
     details.style.display = 'block';
 }
 
-function toggleAnswer(card) {
-    card.classList.toggle('active');
-}
+// function toggleAnswer(card) {
+//     card.classList.toggle('active');
+// }
 
 // Initialize labs when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
