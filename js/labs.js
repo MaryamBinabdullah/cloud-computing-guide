@@ -29,35 +29,38 @@ class CloudLabs {
                 spellcheck: false
             });
 
-            // Set initial value
-            const initialCode = `# Terraform configuration for AWS S3 Bucket
+            // Set initial value - CUSTOMIZED FOR LIBYA COLLEGE
+            const initialCode = `# Terraform configuration for College of Science and Technology
 provider "aws" {
-  region = "us-east-1"
+  region = "eu-south-1"  
 }
 
-# Create a unique S3 bucket for storage
-resource "aws_s3_bucket" "my_learning_bucket" {
-  bucket = "my-cloud-learning-bucket-123"
+# Create cloud storage for student projects
+resource "aws_s3_bucket" "college_projects" {
+  bucket = "ly-cst-student-projects-2025"
   
   tags = {
-    Environment = "learning"
-    Project     = "cloud-education"
+    Department   = "Information Technology"
+    Project      = "Student Cloud Learning"
+    Environment  = "education"
+    College      = "College of Science and Technology"
   }
 }
 
-# Configure bucket for public access blocking
-resource "aws_s3_bucket_public_access_block" "example" {
-  bucket = aws_s3_bucket.my_learning_bucket.id
+# Secure the bucket - student data protection
+resource "aws_s3_bucket_public_access_block" "student_data_protection" {
+  bucket = aws_s3_bucket.college_projects.id
 
-  block_public_acls       = true
-  block_public_policy     = true
-  ignore_public_acls      = true
-  restrict_public_buckets = true
+  block_public_acls       = true    # Keep student work private
+  block_public_policy     = true    # No public access
+  ignore_public_acls      = true    # Extra security layer
+  restrict_public_buckets = true    # Protect student projects
 }
 
-# Output the bucket name
-output "bucket_name" {
-  value = aws_s3_bucket.my_learning_bucket.bucket
+# Output for students to see their created resource
+output "student_bucket_name" {
+  value = aws_s3_bucket.college_projects.bucket
+  description = "Cloud storage bucket for IT student projects"
 }`;
             
             this.terraformEditor.setValue(initialCode);
@@ -247,27 +250,29 @@ output "bucket_name" {
         setTimeout(() => {
             const currentCode = this.terraformEditor ? this.terraformEditor.getValue() : '';
             const bucketNameMatch = currentCode.match(/bucket\s*=\s*"([^"]+)"/);
-            const bucketName = bucketNameMatch ? bucketNameMatch[1] : 'my-cloud-learning-bucket-123';
+            const bucketName = bucketNameMatch ? bucketNameMatch[1] : 'ly-cst-student-projects-2025';
             
             output.innerHTML += '<span class="output-success">✓ Plan: 2 to add, 0 to change, 0 to destroy.</span>\n\n';
             output.innerHTML += '<span class="output-info"># Resource actions are indicated with the following symbols:</span>\n';
             output.innerHTML += '<span class="output-success">  + create</span>\n\n';
             output.innerHTML += '<span class="output-info">Terraform will perform the following actions:</span>\n\n';
-            output.innerHTML += '<span class="output-info">  # aws_s3_bucket.my_learning_bucket will be created</span>\n';
-            output.innerHTML += '<span class="output-success">  + resource "aws_s3_bucket" "my_learning_bucket"</span>\n';
+            output.innerHTML += '<span class="output-info">  # aws_s3_bucket.college_projects will be created</span>\n';
+            output.innerHTML += '<span class="output-success">  + resource "aws_s3_bucket" "college_projects"</span>\n';
             output.innerHTML += `<span class="output-info">      + bucket = "${bucketName}"</span>\n`;
             output.innerHTML += '<span class="output-info">      + tags = {</span>\n';
-            output.innerHTML += '<span class="output-info">          + "Environment" = "learning"</span>\n';
-            output.innerHTML += '<span class="output-info">          + "Project"     = "cloud-education"</span>\n';
+            output.innerHTML += '<span class="output-info">          + "College"     = "College of Science and Technology"</span>\n';
+            output.innerHTML += '<span class="output-info">          + "Department"  = "Information Technology"</span>\n';
+            output.innerHTML += '<span class="output-info">          + "Environment" = "education"</span>\n';
+            output.innerHTML += '<span class="output-info">          + "Project"     = "Student Cloud Learning"</span>\n';
             output.innerHTML += '<span class="output-info">        }</span>\n\n';
-            output.innerHTML += '<span class="output-info">  # aws_s3_bucket_public_access_block.example will be created</span>\n';
-            output.innerHTML += '<span class="output-success">  + resource "aws_s3_bucket_public_access_block" "example"</span>\n';
+            output.innerHTML += '<span class="output-info">  # aws_s3_bucket_public_access_block.student_data_protection will be created</span>\n';
+            output.innerHTML += '<span class="output-success">  + resource "aws_s3_bucket_public_access_block" "student_data_protection"</span>\n';
             output.innerHTML += '<span class="output-info">      + block_public_acls       = true</span>\n';
             output.innerHTML += '<span class="output-info">      + block_public_policy     = true</span>\n';
             output.innerHTML += '<span class="output-info">      + ignore_public_acls      = true</span>\n';
             output.innerHTML += '<span class="output-info">      + restrict_public_buckets = true</span>\n\n';
             output.innerHTML += '<span class="output-info">Plan: 2 to add, 0 to change, 0 to destroy.</span>\n\n';
-            output.innerHTML += '<span class="output-success">✓ This configuration is valid!</span>\n';
+            output.innerHTML += '<span class="output-success">✓ This configuration will create cloud resources for student learning!</span>\n';
             output.innerHTML += '<span class="output-info"># In a real environment, run: terraform apply</span>';
             
             // Scroll to output
@@ -278,34 +283,36 @@ output "bucket_name" {
     resetTerraformCode() {
         if (!this.terraformEditor) return;
 
-        const originalCode = `# Terraform configuration for AWS S3 Bucket
+        const originalCode = `# Terraform configuration for College of Science and Technology
 provider "aws" {
-  region = "us-east-1"
+  region = "eu-south-1"
 }
 
-# Create a unique S3 bucket for storage
-resource "aws_s3_bucket" "my_learning_bucket" {
-  bucket = "my-cloud-learning-bucket-123"
+# Create cloud storage for student projects
+resource "aws_s3_bucket" "college_projects" {
+  bucket = "libya-cst-student-projects-2024"
   
   tags = {
-    Environment = "learning"
-    Project     = "cloud-education"
+    Department   = "Information Technology"
+    Project      = "Student Cloud Learning"
+    Environment  = "education"
+    College      = "College of Science and Technology"
   }
 }
 
-# Configure bucket for public access blocking
-resource "aws_s3_bucket_public_access_block" "example" {
-  bucket = aws_s3_bucket.my_learning_bucket.id
+# Secure the bucket - student data protection
+resource "aws_s3_bucket_public_access_block" "student_data_protection" {
+  bucket = aws_s3_bucket.college_projects.id
 
-  block_public_acls       = true
-  block_public_policy     = true
-  ignore_public_acls      = true
-  restrict_public_buckets = true
+  block_public_acls       = true    # Keep student work private
+  block_public_policy     = true    # No public access
+  ignore_public_acls      = true    # Extra security layer
+  restrict_public_buckets = true    # Protect student projects
 }
 
-# Output the bucket name
-output "bucket_name" {
-  value = aws_s3_bucket.my_learning_bucket.bucket
+output "student_bucket_name" {
+  value = aws_s3_bucket.college_projects.bucket
+  description = "Cloud storage bucket for IT student projects"
 }`;
         
         this.terraformEditor.setValue(originalCode);
@@ -374,7 +381,7 @@ function showLayerDetails(layer) {
     details.style.display = 'block';
 }
 
-function nswer(card) {
+function toggleAnswer(card) {
     card.classList.toggle('active');
 }
 

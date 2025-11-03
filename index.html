@@ -434,34 +434,37 @@
                 </div>
               </div>
               <textarea id="terraform-code" style="display: none">
-# Terraform configuration for AWS S3 Bucket
+# Terraform configuration 
 provider "aws" {
-  region = "us-east-1"
+  region = "eu-south-1" 
 }
 
-# Create a unique S3 bucket for storage
-resource "aws_s3_bucket" "my_learning_bucket" {
-  bucket = "my-cloud-learning-bucket-123"
+# Create cloud storage for student projects
+resource "aws_s3_bucket" "college_projects" {
+  bucket = "ly-cst-student-projects-2025"
   
   tags = {
-    Environment = "learning"
-    Project     = "cloud-education"
+    Department   = "Information Technology"
+    Project      = "Student Cloud Learning"
+    Environment  = "education"
+    College      = "College of Science and Technology"
   }
 }
 
-# Configure bucket for public access blocking
-resource "aws_s3_bucket_public_access_block" "example" {
-  bucket = aws_s3_bucket.my_learning_bucket.id
+# Secure the bucket - student data protection
+resource "aws_s3_bucket_public_access_block" "student_data_protection" {
+  bucket = aws_s3_bucket.college_projects.id
 
-  block_public_acls       = true
-  block_public_policy     = true
-  ignore_public_acls      = true
-  restrict_public_buckets = true
+  block_public_acls       = true    # Keep student work private
+  block_public_policy     = true    # No public access
+  ignore_public_acls      = true    # Extra security layer
+  restrict_public_buckets = true    # Protect student projects
 }
 
-# Output the bucket name
-output "bucket_name" {
-  value = aws_s3_bucket.my_learning_bucket.bucket
+# Output for to see created resource
+output "student_bucket_name" {
+  value = aws_s3_bucket.college_projects.bucket
+  description = "Cloud storage bucket for IT student projects"
 }
                         </textarea
               >

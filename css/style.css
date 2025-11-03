@@ -645,6 +645,9 @@ tr:hover {
     .security-item i {
         font-size: 1rem;
     }
+    .table-container{
+      display:none; 
+    }
 }
 
 
